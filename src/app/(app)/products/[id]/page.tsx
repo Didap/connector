@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { eq, desc } from "drizzle-orm";
-import { Plus, ExternalLink, RefreshCcw } from "lucide-react";
+import { Plus, ExternalLink } from "lucide-react";
 import { db } from "@/lib/db/client";
 import { products, actions, runs } from "@/lib/db/schema";
 import { Button } from "@/components/ui/Button";

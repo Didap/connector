@@ -53,16 +53,29 @@ export default async function DashboardPage() {
       </div>
 
       {allProducts.length === 0 ? (
-        <Card className="text-center py-12">
-          <p className="text-sm text-[var(--color-fg-muted)] mb-4">
-            Nessun prodotto. Aggiungi il primo (es. Ditto) per iniziare a monitorare SEO/GEO.
-          </p>
-          <Link href="/products/new">
-            <Button>
-              <Plus size={14} />
-              Aggiungi prodotto
-            </Button>
-          </Link>
+        <Card className="py-10 px-6 max-w-2xl mx-auto">
+          <div className="text-center space-y-4">
+            <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-[var(--color-accent)]/15 text-[var(--color-accent)] mx-auto">
+              <Plus size={22} />
+            </div>
+            <div className="space-y-2">
+              <h2 className="text-lg font-semibold">Aggiungi il tuo primo prodotto</h2>
+              <p className="text-sm text-[var(--color-fg-muted)] leading-relaxed">
+                Un prodotto è una tua app (es. <strong>Ditto</strong>) che espone un endpoint webhook firmato
+                — Connector lo chiama in automatico, salva i report e ti mostra i grafici.
+              </p>
+              <p className="text-xs text-[var(--color-fg-muted)] leading-relaxed">
+                Dopo aver creato il prodotto, aggiungi <strong>azioni</strong> (es. &quot;ogni lunedì alle 8 chiedi a
+                Tavily se il mio brand viene citato per queste 5 ricerche&quot;).
+              </p>
+            </div>
+            <Link href="/products/new">
+              <Button size="lg">
+                <Plus size={14} />
+                Aggiungi prodotto
+              </Button>
+            </Link>
+          </div>
         </Card>
       ) : (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
