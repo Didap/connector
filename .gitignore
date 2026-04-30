@@ -1,0 +1,13 @@
+node_modules
+.next
+.env
+.env.local
+.env.production
+data/*.db
+data/*.db-*
+*.log
+.DS_Store
+.vercel
+next-env.d.ts
+tsconfig.tsbuildinfo
+.claude/
