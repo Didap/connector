@@ -30,11 +30,18 @@ export async function createSession(userId: string): Promise<string> {
   return token;
 }
 
+function cookieIsSecure(): boolean {
+  const explicit = process.env.COOKIE_SECURE;
+  if (explicit === "1" || explicit === "true") return true;
+  if (explicit === "0" || explicit === "false") return false;
+  return process.env.NODE_ENV === "production";
+}
+
 export async function setSessionCookie(token: string) {
   const store = await cookies();
   store.set(COOKIE_NAME, token, {
     httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
+    secure: cookieIsSecure(),
     sameSite: "lax",
     path: "/",
     maxAge: SESSION_DAYS * 24 * 60 * 60,
