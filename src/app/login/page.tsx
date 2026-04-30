@@ -1,11 +1,8 @@
-import { redirect } from "next/navigation";
-import { hasAnyUser } from "@/lib/auth/session";
 import { LoginForm } from "./LoginForm";
 
 export const dynamic = "force-dynamic";
 
-export default async function LoginPage() {
-  if (!(await hasAnyUser())) redirect("/setup");
+export default function LoginPage() {
   return (
     <div className="min-h-screen flex items-center justify-center px-4">
       <div className="w-full max-w-sm">

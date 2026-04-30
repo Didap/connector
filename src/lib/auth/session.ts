@@ -75,9 +75,4 @@ export async function destroyCurrentSession() {
   await clearSessionCookie();
 }
 
-export async function hasAnyUser(): Promise<boolean> {
-  const result = await db.select().from(users).limit(1);
-  return result.length > 0;
-}
-
 export const SESSION_COOKIE_NAME = COOKIE_NAME;
